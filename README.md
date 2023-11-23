@@ -1,7 +1,7 @@
 # ProductDiscount
 Getting a list of discounted products
 
-Used
+Use
 
 ```php
 $products = ProductDiscount::getDiscounProducts();

@@ -1,3 +1,9 @@
+<?php
+/**
+ * Class for receiving all products to which discounts apply
+ * Author: Dokukin Vyacheslav Olegovich <toorrp4@gmail.com>
+ * Date: 23.11.2023
+ */
 class ProductDiscount
 {
     private static $result;
@@ -33,7 +39,7 @@ class ProductDiscount
         global $DB;
 
         $arOr = array();
-        $date = date($DB->DateFormatToPHP(CSite::GetDateFormat("SHORT")), mktime(0, 0, 0, date("n"), date("d"), date("Y")));
+        $date = date($DB->DateFormatToPHP('Y-m-d'), mktime(0, 0, 0, date("n"), date("d"), date("Y")));
         $results = $DB->Query("SELECT `ID`, `CONDITIONS`, `ACTIONS` FROM `b_sale_discount` WHERE `ACTIVE_TO` >= '" . $date . "' AND `ACTIVE` ='Y'");
         
         while($row = $results->Fetch())
@@ -70,6 +76,10 @@ class ProductDiscount
             $arOr[] = implode(' OR ', $return_value);
         
         }
+
+        if(!count($arOr)){
+            return array();
+        }
         
         $res = $DB->Query("SELECT `ID` FROM `b_iblock_element` WHERE " . implode(' OR ', $arOr) . " AND `ACTIVE` = 'Y';");
         
@@ -83,3 +93,4 @@ class ProductDiscount
         return self::$result;
     }
 }
+?>

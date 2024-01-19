@@ -1,5 +1,5 @@
-# ProductDiscount
-Getting a list of discounted products
+# ProductDiscount 1C-Bitrix
+Getting a list of discounted products in 1C-Bitrix
 
 Use
 ---

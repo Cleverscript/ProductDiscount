@@ -4,10 +4,11 @@ Getting a list of discounted products
 Use
 ---
 
-Create a cart rule
+### Create a cart rule
 ![Общие параметры правила](https://github.com/Cleverscript/ProductDiscount/blob/main/cond_1.png)
 ![Выполняемые действия и условия применения](https://github.com/Cleverscript/ProductDiscount/blob/main/cond_2.png)
 
+### Use the class to get product IDs and pass them to the component filter
 ```php
 $products = ProductDiscount::getDiscounProducts();
 $GLOBALS["arrFilter"] = Array("ID" => $products);

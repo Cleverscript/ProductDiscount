@@ -2,6 +2,11 @@
 Getting a list of discounted products
 
 Use
+---
+
+Create a cart rule
+![Общие параметры правила](https://github.com/Cleverscript/ProductDiscount/blob/main/cond_1.png)
+![Выполняемые действия и условия применения](https://github.com/Cleverscript/ProductDiscount/blob/main/cond_2.png)
 
 ```php
 $products = ProductDiscount::getDiscounProducts();
